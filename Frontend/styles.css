@@ -124,4 +124,20 @@ input[type="radio"], input[type="checkbox"] {
     filter: brightness(1.1);
 }
 
-.button
+.message {
+    background-color: #2563eb;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    display: none;
+}
+
+.message.success {
+    background-color: #16a34a;
+    display:block;
+}
+
+.message.danger {
+    background-color: #dc2626;
+    display: block;
+}
