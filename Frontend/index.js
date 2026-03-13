@@ -9,10 +9,10 @@ const validateData = (userData) => {
     if (!userData.age) {
         errors.push('กรุณากรอกอายุ');
     }
-if (!userData.gender) {
+    if (!userData.gender) {
         errors.push('กรุณาเลือกเพศ');
     }
-if (!userData.interests) {
+    if (!userData.interests) {
         errors.push('กรุณาเลือกงานอดิเรก');
     }
     if (!userData.description) {
@@ -52,7 +52,7 @@ try{
     const errors = validateData(userData);
     if (errors.length > 0) {
         throw {
-            message: 'กรอกข้อมูลให้ครบถ้วน',
+           message: 'กรอกข้อมูลให้ครบถ้วน',
             errors: errors
         }
     }
@@ -64,9 +64,13 @@ try{
     } catch (error) {
         console.log('error message:', error.message);
         console.log('error details:', error.errors);
-      //  if (error.response) {
-      //      console.log('Error response:', error.response.data);
-      //  }
+
+        if (error.response) {
+            console.log('Error response:', error.response);
+            error.message = error.response.data.message
+            error.errors = error.response.data.errors
+        }
+
         let htmlData = '<div>'
         htmlData += `<p>${error.message}</p>`;
         htmlData += '<ul>';
